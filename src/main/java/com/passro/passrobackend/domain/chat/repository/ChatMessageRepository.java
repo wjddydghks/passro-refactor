@@ -17,7 +17,7 @@ public interface ChatMessageRepository extends JpaRepository<ChatMessage, Long> 
     List<ChatMessage> findAllByDelivery_IdAndIdGreaterThanOrderByCreatedAtAsc(Long deliveryId, Long afterId);
 
     @Query("""
-            SELECT new com.passro.passrobackend.chat.dto.ChatMessageResponseDto(
+            SELECT new ChatMessageResponseDto(
                 m.id,
                 sender.id,
                 sender.nickname,
@@ -36,7 +36,7 @@ public interface ChatMessageRepository extends JpaRepository<ChatMessage, Long> 
             @Param("deliveryId") Long deliveryId);
 
     @Query("""
-            SELECT new com.passro.passrobackend.chat.dto.ChatMessageResponseDto(
+            SELECT new ChatMessageResponseDto(
                 m.id,
                 sender.id,
                 sender.nickname,
