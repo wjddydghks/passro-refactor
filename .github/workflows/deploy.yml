@@ -1,0 +1,52 @@
+name: Continuous Deploy
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - deploy
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: publish
+
+    steps:
+      - name: Deploy
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.REMOTE_IP }}
+          username: ${{ secrets.REMOTE_SSH_ID }}
+          key: ${{ secrets.REMOTE_SSH_KEY }}
+          port: ${{ secrets.REMOTE_SSH_PORT }}
+          script: |
+            set -e
+
+            rm -rf passro-backend
+            git clone --branch deploy --single-branch \
+              https://github.com/UMC-Passro/passro-backend.git \
+              passro-backend
+
+            cd passro-backend
+
+            cat > .env << 'EOF'
+            MYSQL_ROOT_PASSWORD=${{ secrets.MYSQL_ROOT_PASSWORD }}
+            MYSQL_DATABASE=${{ secrets.MYSQL_DATABASE }}
+            MYSQL_USER=${{ secrets.MYSQL_USER }}
+            MYSQL_PASSWORD=${{ secrets.MYSQL_PASSWORD }}
+            DATABASE_URL=${{ secrets.DATABASE_URL }}
+            REDIS_PASSWORD=${{ secrets.REDIS_PASSWORD }}
+            SMTP_PASSWORD=${{ secrets.SMTP_PASSWORD }}
+            SMTP_USER_NAME=${{ secrets.SMTP_USER_NAME }}
+            JWT_SECRET=${{ secrets.JWT_SECRET }}
+            SUBWAY_API_KEY=${{ secrets.SUBWAY_API_KEY }}
+            AWS_S3_BUCKET=${{ secrets.AWS_S3_BUCKET }}
+            AWS_S3_ENDPOINT=${{ secrets.AWS_S3_ENDPOINT }}
+            AWS_ACCESS_KEY_ID=${{ secrets.AWS_ACCESS_KEY_ID }}
+            AWS_SECRET_ACCESS_KEY=${{ secrets.AWS_SECRET_ACCESS_KEY }}
+            JAVA_OPTS=-Xms256m -Xmx512m
+            EOF
+
+            docker build -t passro-backend:latest .
+            docker compose down
+            docker compose up -d

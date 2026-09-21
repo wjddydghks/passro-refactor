@@ -1,0 +1,66 @@
+> Task :clean
+
+> Task :compileJava
+/Users/jyh/Desktop/passro-backend/src/main/java/com/passro/passrobackend/chat/entity/ChatMessage.java:33: warning: @SuperBuilder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+    private boolean isRead = false;
+                    ^
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+1 warning
+
+> Task :processResources
+> Task :classes
+
+> Task :compileTestJava
+/Users/jyh/Desktop/passro-backend/src/test/java/com/passro/passrobackend/chat/controller/ChatControllerTest.java:64: warning: [removal] MappingJackson2HttpMessageConverter in org.springframework.http.converter.json has been deprecated and marked for removal
+                .setMessageConverters(new MappingJackson2HttpMessageConverter(objectMapper))
+                                          ^
+1 warning
+
+> Task :processTestResources
+> Task :testClasses
+
+> Task :test FAILED
+
+AccountMyInfoIntegrationTest > editMyInfoRejectsDuplicatePhoneNumber() FAILED
+    java.lang.IllegalStateException at DefaultCacheAwareContextLoaderDelegate.java:195
+        Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException at ConstructorResolver.java:804
+            Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException at ConstructorResolver.java:804
+                Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException at ConstructorResolver.java:804
+                    Caused by: org.springframework.beans.factory.BeanCreationException at AbstractAutowireCapableBeanFactory.java:1815
+                        Caused by: org.springframework.data.repository.query.QueryCreationException at QueryCreationException.java:109
+                            Caused by: org.springframework.data.core.PropertyReferenceException at SimplePropertyPath.java:94
+
+AccountMyInfoIntegrationTest > editMyInfoRejectsAnonymousRequest() FAILED
+    java.lang.IllegalStateException at DefaultCacheAwareContextLoaderDelegate.java:157
+
+AccountMyInfoIntegrationTest > editMyInfoIsRateLimitedByCooldown() FAILED
+    java.lang.IllegalStateException at DefaultCacheAwareContextLoaderDelegate.java:157
+
+AccountMyInfoIntegrationTest > editMyInfoRejectsDuplicateNickname() FAILED
+    java.lang.IllegalStateException at DefaultCacheAwareContextLoaderDelegate.java:157
+
+AccountMyInfoIntegrationTest > editMyInfoRejectsInvalidNicknameFormat() FAILED
+    java.lang.IllegalStateException at DefaultCacheAwareContextLoaderDelegate.java:157
+
+AccountMyInfoIntegrationTest > editMyInfoRejectsInvalidPlaceId() FAILED
+    java.lang.IllegalStateException at DefaultCacheAwareContextLoaderDelegate.java:157
+
+AccountMyInfoIntegrationTest > editMyInfoUpdatesNicknamePhoneAndRoute() FAILED
+    java.lang.IllegalStateException at DefaultCacheAwareContextLoaderDelegate.java:157
+
+7 tests completed, 7 failed
+
+[Incubating] Problems report is available at: file:///Users/jyh/Desktop/passro-backend/build/reports/problems/problems-report.html
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':test'.
+> There were failing tests. See the report at: file:///Users/jyh/Desktop/passro-backend/build/reports/tests/test/index.html
+
+* Try:
+> Run with --scan to get full insights from a Build Scan (powered by Develocity).
+
+BUILD FAILED in 9s
+6 actionable tasks: 6 executed
