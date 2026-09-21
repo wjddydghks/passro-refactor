@@ -12,8 +12,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.passro.passrobackend.domain.account.entity.Account;
-import com.passro.passrobackend.domain.account.entity.University;
-import com.passro.passrobackend.domain.account.repository.UniversityRepository;
 import com.passro.passrobackend.support.IntegrationTestSupport;
 import java.util.UUID;
 import org.junit.jupiter.api.Test;
@@ -30,9 +28,6 @@ import org.springframework.transaction.annotation.Transactional;
 class AuthIntegrationTest extends IntegrationTestSupport {
 
     @Autowired
-    private UniversityRepository universityRepository;
-
-    @Autowired
     private StringRedisTemplate redisTemplate;
 
     @MockitoBean
@@ -41,10 +36,9 @@ class AuthIntegrationTest extends IntegrationTestSupport {
     @Test
     void mailVerificationSignupLoginReissueAndLogoutWorkTogether() throws Exception {
         String suffix = UUID.randomUUID().toString().substring(0, 8);
-        String email = "student-" + suffix + "@passro.test";
+        String email = "user-" + suffix + "@example.com";
         String nickname = "tester-" + suffix;
         String password = "Passro123!";
-        saveUniversityDomain();
 
         mockMvc.perform(post("/auth/mail/send")
                         .contentType(MediaType.APPLICATION_JSON)
@@ -99,8 +93,7 @@ class AuthIntegrationTest extends IntegrationTestSupport {
 
     @Test
     void repeatedVerificationMailRequestIsRateLimited() throws Exception {
-        String email = "rate-" + UUID.randomUUID().toString().substring(0, 8) + "@passro.test";
-        saveUniversityDomain();
+        String email = "rate-" + UUID.randomUUID().toString().substring(0, 8) + "@example.com";
         String body = "{\"mail\":\"" + email + "\"}";
 
         mockMvc.perform(post("/auth/mail/send").contentType(MediaType.APPLICATION_JSON).content(body))
@@ -237,13 +230,6 @@ class AuthIntegrationTest extends IntegrationTestSupport {
                 .andExpect(jsonPath("$.result.birth").exists())
                 .andExpect(jsonPath("$.result.sourceStationId").exists())
                 .andExpect(jsonPath("$.result.destinationStationId").exists());
-    }
-
-    private void saveUniversityDomain() {
-        universityRepository.saveAndFlush(University.builder()
-                .name("Passro University " + UUID.randomUUID())
-                .mailDomain("passro.test")
-                .build());
     }
 
     private String signupBody(String email, String password, String nickname) {

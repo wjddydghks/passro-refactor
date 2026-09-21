@@ -1,4 +1,4 @@
-package com.passro.passrobackend.account.controller;
+package com.passro.passrobackend.point.service;
 
 import com.passro.passrobackend.domain.account.entity.Account;
 import com.passro.passrobackend.global.response.APIResponse;

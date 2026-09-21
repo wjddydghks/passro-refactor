@@ -4,7 +4,6 @@ import com.passro.passrobackend.domain.account.dto.authDTO.AuthReqDTO;
 import com.passro.passrobackend.domain.account.exception.AccountException;
 import com.passro.passrobackend.domain.account.exception.code.AccountErrorCode;
 import com.passro.passrobackend.domain.account.repository.AccountRepository;
-import com.passro.passrobackend.domain.account.repository.UniversityRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.mail.SimpleMailMessage;
@@ -20,7 +19,6 @@ public class MailSenderService {
     private final AsyncMailService asyncMailService;
 
     private final AccountRepository accountRepository;
-    private final UniversityRepository universityRepository;
 
     private final StringRedisTemplate stringRedisTemplate;
 
@@ -38,32 +36,8 @@ public class MailSenderService {
     public void sendMailMessageSignUpOrShipperSelect(AuthReqDTO.SendMail dto) {
         String mail = dto.getMail();
 
-        if (dto.isStudent())
-            validateUniversityMail(mail);
-
-        if (!dto.isStudent() && accountRepository.existsByMail(mail))
-            throw new AccountException(AccountErrorCode.DUPLICATE_MAIL);
-
         sendMail(mail);
     }
-
-    private void validateUniversityMail(String mail) {
-        int atIndex = mail.indexOf("@");
-        if (atIndex == -1 || atIndex == mail.length() - 1)
-            throw new AccountException(AccountErrorCode.INVALID_MAIL_DOMAIN);
-
-        String domain = mail.substring(atIndex + 1).toLowerCase();
-
-        boolean allowed = universityRepository.findAll().stream()
-                .anyMatch(university -> {
-                    String registered = university.getMailDomain().toLowerCase();
-                    return domain.equals(registered) || domain.endsWith("." + registered);
-                });
-
-        if (!allowed)
-            throw new AccountException(AccountErrorCode.INVALID_MAIL_DOMAIN);
-    }
-
 
     private void sendMail(String mail) {
         if (Boolean.TRUE.equals(stringRedisTemplate.hasKey(RESEND_COOLDOWN_PREFIX + mail)))
