@@ -15,8 +15,6 @@ import java.time.Duration;
 @Service
 public class VerificationCodeService {
 
-    private final AccountRepository accountRepository;
-
     private final StringRedisTemplate stringRedisTemplate;
 
     //인증 코드
