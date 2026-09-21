@@ -101,24 +101,6 @@ public class AuthController {
         return APIResponse.onSuccess(code, null);
     }
 
-    @PostMapping("/mail/confirm/University")
-    @Operation(summary = "이메일 인증 코드 확인", description = "이메일로 발송된 6자리 인증 코드를 확인합니다.")
-    @ApiResponses({
-            @ApiResponse(responseCode = "200", description = "이메일 인증 성공", useReturnTypeSchema = true,
-                    content = @Content(examples = @ExampleObject(name = "ACCOUNT200_1", summary = "이메일 인증 성공", value = ACCOUNT_OK))),
-            @ApiResponse(responseCode = "400", description = "인증 코드 불일치 또는 만료",
-                    content = @Content(schema = @Schema(implementation = APIResponse.class), examples = {
-                            @ExampleObject(name = "COMMON400", summary = "요청 값 검증 실패", value = COMMON_VALIDATION),
-                            @ExampleObject(name = "ACCOUNT400_1", summary = "인증 코드 만료", value = ACCOUNT_MAIL_CODE_EXPIRED),
-                            @ExampleObject(name = "ACCOUNT400_2", summary = "인증 코드 불일치", value = ACCOUNT_MAIL_CODE_MISMATCH)
-                    }))
-    })
-    public APIResponse<Void> confirmUniversityCode(@Valid @RequestBody AuthReqDTO.ConfirmCode dto, @AuthenticationPrincipal CustomUserDetails userDetails){
-        BaseSuccessCode code = AccountSuccessCode.OK;
-        verificationCodeService.confirmUniversityMailCode(dto, userDetails.getAccountId());
-        return APIResponse.onSuccess(code, null);
-    }
-
     @PostMapping("/signup")
     @Operation(summary = "회원가입", description = "이메일 인증을 완료한 사용자의 계정을 생성합니다.")
     @ApiResponses({
