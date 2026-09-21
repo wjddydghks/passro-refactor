@@ -26,25 +26,6 @@ public class VerificationCodeService {
     private static final String VERIFIED_PREFIX = "mail:verify:done:";
     private static final Duration VERIFIED_TTL = Duration.ofMinutes(30);
 
-
-    public void confirmUniversityMailCode(AuthReqDTO.ConfirmCode dto, Long accountId) {
-        String mail = dto.getMail();
-        String code = dto.getCode();
-
-        String savedCode = stringRedisTemplate.opsForValue().get(CODE_PREFIX + mail);
-
-        confirmSavedCode(code, savedCode);
-
-        Account account = accountRepository.findById(accountId)
-                .orElseThrow(() -> new AccountException(AccountErrorCode.NOT_FOUND));
-
-        account.certify();
-
-        accountRepository.save(account);
-
-        stringRedisTemplate.delete(CODE_PREFIX + mail);
-    }
-
     public void confirmCode(AuthReqDTO.ConfirmCode dto) {
         String mail = dto.getMail();
         String code = dto.getCode();
