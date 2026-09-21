@@ -2,22 +2,21 @@ package com.passro.passrobackend.chat.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
-import com.passro.passrobackend.account.entity.Account;
-import com.passro.passrobackend.account.repository.AccountRepository;
-import com.passro.passrobackend.chat.dto.ChatMessageRequestDto;
-import com.passro.passrobackend.chat.dto.ChatMessageResponseDto;
-import com.passro.passrobackend.chat.dto.ChatMessageSendResponseDto;
-import com.passro.passrobackend.chat.dto.ChatRoomResponseDto;
-import com.passro.passrobackend.chat.dto.ChatRoomInfoResponseDto;
-import com.passro.passrobackend.chat.exception.ChatException;
-import com.passro.passrobackend.chat.exception.code.ChatErrorCode;
-import com.passro.passrobackend.chat.service.ChatService;
-import com.passro.passrobackend.delivery.enums.DeliveryState;
+import com.passro.passrobackend.domain.account.entity.Account;
+import com.passro.passrobackend.domain.account.repository.AccountRepository;
+import com.passro.passrobackend.domain.chat.controller.ChatController;
+import com.passro.passrobackend.domain.chat.dto.ChatMessageRequestDto;
+import com.passro.passrobackend.domain.chat.dto.ChatMessageResponseDto;
+import com.passro.passrobackend.domain.chat.dto.ChatMessageSendResponseDto;
+import com.passro.passrobackend.domain.chat.dto.ChatRoomResponseDto;
+import com.passro.passrobackend.domain.chat.dto.ChatRoomInfoResponseDto;
+import com.passro.passrobackend.domain.chat.exception.ChatException;
+import com.passro.passrobackend.domain.chat.exception.code.ChatErrorCode;
+import com.passro.passrobackend.domain.chat.service.ChatService;
+import com.passro.passrobackend.domain.delivery.enums.DeliveryState;
 import com.passro.passrobackend.global.advice.APIExceptionHandler;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
@@ -51,7 +50,8 @@ class ChatControllerTest {
     @Mock ChatService chatService;
     @Mock AccountRepository accountRepository;
 
-    @InjectMocks ChatController chatController;
+    @InjectMocks
+    ChatController chatController;
 
     MockMvc mockMvc;
     ObjectMapper objectMapper;

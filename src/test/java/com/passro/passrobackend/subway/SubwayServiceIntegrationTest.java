@@ -7,11 +7,11 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-import com.passro.passrobackend.place.entity.Place;
-import com.passro.passrobackend.subway.dto.SubwayRouteResponseDto;
-import com.passro.passrobackend.subway.graph.SubwayEdge;
-import com.passro.passrobackend.subway.graph.SubwayNode;
-import com.passro.passrobackend.subway.service.SubwayService;
+import com.passro.passrobackend.domain.place.entity.Place;
+import com.passro.passrobackend.domain.subway.dto.SubwayRouteResponseDto;
+import com.passro.passrobackend.domain.subway.graph.SubwayEdge;
+import com.passro.passrobackend.domain.subway.graph.SubwayNode;
+import com.passro.passrobackend.domain.subway.service.SubwayService;
 import com.passro.passrobackend.support.IntegrationTestSupport;
 import java.util.ArrayDeque;
 import java.util.Arrays;

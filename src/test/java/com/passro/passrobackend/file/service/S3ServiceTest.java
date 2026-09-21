@@ -6,9 +6,10 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.verify;
 
-import com.passro.passrobackend.file.exception.FileException;
-import com.passro.passrobackend.file.exception.code.FileErrorCode;
+import com.passro.passrobackend.global.file.exception.FileException;
+import com.passro.passrobackend.global.file.exception.code.FileErrorCode;
 import com.passro.passrobackend.global.configuration.S3Properties;
+import com.passro.passrobackend.global.file.service.S3Service;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

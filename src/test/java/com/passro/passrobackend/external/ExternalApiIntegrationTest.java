@@ -9,8 +9,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.http.MediaType.APPLICATION_JSON;
 
-import com.passro.passrobackend.file.exception.FileException;
-import com.passro.passrobackend.file.service.S3Service;
+import com.passro.passrobackend.global.file.exception.FileException;
+import com.passro.passrobackend.global.file.service.S3Service;
 import com.passro.passrobackend.support.IntegrationTestSupport;
 import java.time.Duration;
 import org.junit.jupiter.api.Test;

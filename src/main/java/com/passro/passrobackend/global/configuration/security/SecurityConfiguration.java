@@ -1,13 +1,12 @@
 package com.passro.passrobackend.global.configuration.security;
 
-import com.passro.passrobackend.account.repository.AccountRepository;
+import com.passro.passrobackend.domain.account.repository.AccountRepository;
 import com.passro.passrobackend.global.jwt.JwtAuthenticationFilter;
 import com.passro.passrobackend.global.jwt.JwtProvider;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityCustomizer;

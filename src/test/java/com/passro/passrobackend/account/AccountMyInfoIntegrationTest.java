@@ -7,13 +7,13 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-import com.passro.passrobackend.account.entity.Account;
-import com.passro.passrobackend.account.entity.AccountPlace;
-import com.passro.passrobackend.account.entity.WayPoint;
-import com.passro.passrobackend.account.repository.AccountPlaceRepository;
-import com.passro.passrobackend.account.repository.WayPointRepository;
-import com.passro.passrobackend.place.entity.Place;
-import com.passro.passrobackend.place.repository.PlaceRepository;
+import com.passro.passrobackend.domain.account.entity.Account;
+import com.passro.passrobackend.domain.account.entity.AccountPlace;
+import com.passro.passrobackend.domain.account.entity.WayPoint;
+import com.passro.passrobackend.domain.account.repository.AccountPlaceRepository;
+import com.passro.passrobackend.domain.account.repository.WayPointRepository;
+import com.passro.passrobackend.domain.place.entity.Place;
+import com.passro.passrobackend.domain.place.repository.PlaceRepository;
 import com.passro.passrobackend.support.IntegrationTestSupport;
 import java.time.LocalDate;
 import java.util.UUID;

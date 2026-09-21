@@ -1,12 +1,13 @@
 package com.passro.passrobackend.inquiry.service;
 
-import com.passro.passrobackend.account.entity.Account;
-import com.passro.passrobackend.file.service.S3Service;
-import com.passro.passrobackend.inquiry.dto.InquiryCreateRequestDto;
-import com.passro.passrobackend.inquiry.dto.InquiryResponseDto;
-import com.passro.passrobackend.inquiry.entity.Inquiry;
-import com.passro.passrobackend.inquiry.enums.InquiryCategory;
-import com.passro.passrobackend.inquiry.repository.InquiryRepository;
+import com.passro.passrobackend.domain.account.entity.Account;
+import com.passro.passrobackend.domain.inquiry.service.InquiryService;
+import com.passro.passrobackend.global.file.service.S3Service;
+import com.passro.passrobackend.domain.inquiry.dto.InquiryCreateRequestDto;
+import com.passro.passrobackend.domain.inquiry.dto.InquiryResponseDto;
+import com.passro.passrobackend.domain.inquiry.entity.Inquiry;
+import com.passro.passrobackend.domain.inquiry.enums.InquiryCategory;
+import com.passro.passrobackend.domain.inquiry.repository.InquiryRepository;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

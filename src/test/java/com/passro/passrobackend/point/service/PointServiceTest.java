@@ -1,15 +1,16 @@
 package com.passro.passrobackend.point.service;
 
-import com.passro.passrobackend.account.entity.Account;
-import com.passro.passrobackend.account.repository.AccountRepository;
-import com.passro.passrobackend.delivery.entity.Delivery;
-import com.passro.passrobackend.delivery.entity.DeliveryGoodInfo;
-import com.passro.passrobackend.point.entity.PointLog;
-import com.passro.passrobackend.point.dto.PointHistoryResponseDto;
-import com.passro.passrobackend.point.enums.PointIncrementReason;
-import com.passro.passrobackend.point.exception.PointException;
-import com.passro.passrobackend.point.exception.code.PointErrorCode;
-import com.passro.passrobackend.point.repository.PointLogRepository;
+import com.passro.passrobackend.domain.account.entity.Account;
+import com.passro.passrobackend.domain.account.repository.AccountRepository;
+import com.passro.passrobackend.domain.delivery.entity.Delivery;
+import com.passro.passrobackend.domain.delivery.entity.DeliveryGoodInfo;
+import com.passro.passrobackend.domain.point.entity.PointLog;
+import com.passro.passrobackend.domain.point.dto.PointHistoryResponseDto;
+import com.passro.passrobackend.domain.point.enums.PointIncrementReason;
+import com.passro.passrobackend.domain.point.exception.PointException;
+import com.passro.passrobackend.domain.point.exception.code.PointErrorCode;
+import com.passro.passrobackend.domain.point.repository.PointLogRepository;
+import com.passro.passrobackend.domain.point.service.PointService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.ArgumentCaptor;

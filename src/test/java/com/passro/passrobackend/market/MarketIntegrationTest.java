@@ -11,15 +11,15 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-import com.passro.passrobackend.account.entity.Account;
-import com.passro.passrobackend.account.enums.AccountRole;
-import com.passro.passrobackend.file.service.S3Service;
-import com.passro.passrobackend.market.entity.Market;
-import com.passro.passrobackend.market.enums.MarketCategory;
-import com.passro.passrobackend.market.repository.MarketRepository;
-import com.passro.passrobackend.point.entity.PointLog;
-import com.passro.passrobackend.point.enums.PointIncrementReason;
-import com.passro.passrobackend.point.repository.PointLogRepository;
+import com.passro.passrobackend.domain.account.entity.Account;
+import com.passro.passrobackend.domain.account.enums.AccountRole;
+import com.passro.passrobackend.global.file.service.S3Service;
+import com.passro.passrobackend.domain.market.entity.Market;
+import com.passro.passrobackend.domain.market.enums.MarketCategory;
+import com.passro.passrobackend.domain.market.repository.MarketRepository;
+import com.passro.passrobackend.domain.point.entity.PointLog;
+import com.passro.passrobackend.domain.point.enums.PointIncrementReason;
+import com.passro.passrobackend.domain.point.repository.PointLogRepository;
 import com.passro.passrobackend.support.IntegrationTestSupport;
 import java.util.List;
 import org.junit.jupiter.api.Test;

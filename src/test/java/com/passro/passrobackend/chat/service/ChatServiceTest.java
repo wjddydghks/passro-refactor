@@ -1,22 +1,23 @@
 package com.passro.passrobackend.chat.service;
 
-import com.passro.passrobackend.account.entity.Account;
-import com.passro.passrobackend.chat.dto.ChatMessageRequestDto;
-import com.passro.passrobackend.chat.dto.ChatMessageResponseDto;
-import com.passro.passrobackend.chat.dto.ChatMessageSendResponseDto;
-import com.passro.passrobackend.chat.dto.ChatRoomInfoResponseDto;
-import com.passro.passrobackend.chat.entity.ChatMessage;
-import com.passro.passrobackend.chat.entity.ChatRoom;
-import com.passro.passrobackend.chat.exception.ChatException;
-import com.passro.passrobackend.chat.exception.code.ChatErrorCode;
-import com.passro.passrobackend.chat.repository.ChatMessageRepository;
-import com.passro.passrobackend.chat.repository.ChatRoomRepository;
-import com.passro.passrobackend.delivery.entity.Delivery;
-import com.passro.passrobackend.delivery.entity.DeliveryGoodInfo;
-import com.passro.passrobackend.delivery.enums.DeliveryState;
-import com.passro.passrobackend.delivery.repository.DeliveryRepository;
-import com.passro.passrobackend.file.service.S3Service;
-import com.passro.passrobackend.place.entity.Place;
+import com.passro.passrobackend.domain.account.entity.Account;
+import com.passro.passrobackend.domain.chat.dto.ChatMessageRequestDto;
+import com.passro.passrobackend.domain.chat.dto.ChatMessageResponseDto;
+import com.passro.passrobackend.domain.chat.dto.ChatMessageSendResponseDto;
+import com.passro.passrobackend.domain.chat.dto.ChatRoomInfoResponseDto;
+import com.passro.passrobackend.domain.chat.entity.ChatMessage;
+import com.passro.passrobackend.domain.chat.entity.ChatRoom;
+import com.passro.passrobackend.domain.chat.exception.ChatException;
+import com.passro.passrobackend.domain.chat.exception.code.ChatErrorCode;
+import com.passro.passrobackend.domain.chat.repository.ChatMessageRepository;
+import com.passro.passrobackend.domain.chat.repository.ChatRoomRepository;
+import com.passro.passrobackend.domain.chat.service.ChatService;
+import com.passro.passrobackend.domain.delivery.entity.Delivery;
+import com.passro.passrobackend.domain.delivery.entity.DeliveryGoodInfo;
+import com.passro.passrobackend.domain.delivery.enums.DeliveryState;
+import com.passro.passrobackend.domain.delivery.repository.DeliveryRepository;
+import com.passro.passrobackend.global.file.service.S3Service;
+import com.passro.passrobackend.domain.place.entity.Place;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
@@ -29,7 +30,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import org.mockito.junit.jupiter.MockitoSettings;
 import org.mockito.quality.Strictness;
 
-import com.passro.passrobackend.chat.dto.ChatRoomListItemResponseDto;
+import com.passro.passrobackend.domain.chat.dto.ChatRoomListItemResponseDto;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -54,7 +55,8 @@ class ChatServiceTest {
     @Mock DeliveryRepository deliveryRepository;
     @Mock S3Service s3Service;
 
-    @InjectMocks ChatService chatService;
+    @InjectMocks
+    ChatService chatService;
 
     Account sender;
     Account shipper;

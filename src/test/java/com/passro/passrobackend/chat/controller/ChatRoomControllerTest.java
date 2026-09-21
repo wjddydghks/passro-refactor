@@ -2,10 +2,11 @@ package com.passro.passrobackend.chat.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
-import com.passro.passrobackend.account.entity.Account;
-import com.passro.passrobackend.chat.dto.ChatPartnerDto;
-import com.passro.passrobackend.chat.dto.ChatRoomListItemResponseDto;
-import com.passro.passrobackend.chat.service.ChatService;
+import com.passro.passrobackend.domain.account.entity.Account;
+import com.passro.passrobackend.domain.chat.controller.ChatRoomController;
+import com.passro.passrobackend.domain.chat.dto.ChatPartnerDto;
+import com.passro.passrobackend.domain.chat.dto.ChatRoomListItemResponseDto;
+import com.passro.passrobackend.domain.chat.service.ChatService;
 import com.passro.passrobackend.global.advice.APIExceptionHandler;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -39,7 +40,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 class ChatRoomControllerTest {
 
     @Mock ChatService chatService;
-    @InjectMocks ChatRoomController chatRoomController;
+    @InjectMocks
+    ChatRoomController chatRoomController;
 
     MockMvc mockMvc;
     ObjectMapper objectMapper;

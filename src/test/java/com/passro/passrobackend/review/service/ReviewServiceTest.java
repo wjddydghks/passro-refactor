@@ -1,15 +1,16 @@
 package com.passro.passrobackend.review.service;
 
-import com.passro.passrobackend.account.entity.Account;
-import com.passro.passrobackend.account.repository.AccountRepository;
-import com.passro.passrobackend.delivery.entity.Delivery;
-import com.passro.passrobackend.delivery.enums.DeliveryState;
-import com.passro.passrobackend.delivery.repository.DeliveryRepository;
-import com.passro.passrobackend.review.dto.ReviewAverageResponseDto;
-import com.passro.passrobackend.review.dto.ReviewCreateRequestDto;
-import com.passro.passrobackend.review.entity.Review;
-import com.passro.passrobackend.review.exception.ReviewException;
-import com.passro.passrobackend.review.repository.ReviewRepository;
+import com.passro.passrobackend.domain.account.entity.Account;
+import com.passro.passrobackend.domain.account.repository.AccountRepository;
+import com.passro.passrobackend.domain.delivery.entity.Delivery;
+import com.passro.passrobackend.domain.delivery.enums.DeliveryState;
+import com.passro.passrobackend.domain.delivery.repository.DeliveryRepository;
+import com.passro.passrobackend.domain.review.dto.ReviewAverageResponseDto;
+import com.passro.passrobackend.domain.review.dto.ReviewCreateRequestDto;
+import com.passro.passrobackend.domain.review.entity.Review;
+import com.passro.passrobackend.domain.review.exception.ReviewException;
+import com.passro.passrobackend.domain.review.repository.ReviewRepository;
+import com.passro.passrobackend.domain.review.service.ReviewService;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

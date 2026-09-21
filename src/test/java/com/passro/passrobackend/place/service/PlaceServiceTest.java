@@ -4,10 +4,12 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.BDDMockito.then;
 
-import com.passro.passrobackend.place.entity.Place;
-import com.passro.passrobackend.place.repository.PlaceRepository;
+import com.passro.passrobackend.domain.place.entity.Place;
+import com.passro.passrobackend.domain.place.repository.PlaceRepository;
 import java.math.BigDecimal;
 import java.util.List;
+
+import com.passro.passrobackend.domain.place.service.PlaceService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.ArgumentCaptor;

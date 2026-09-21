@@ -6,11 +6,11 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-import com.passro.passrobackend.account.entity.Account;
-import com.passro.passrobackend.delivery.entity.Delivery;
-import com.passro.passrobackend.delivery.enums.DeliveryState;
-import com.passro.passrobackend.place.entity.Place;
-import com.passro.passrobackend.place.repository.PlaceRepository;
+import com.passro.passrobackend.domain.account.entity.Account;
+import com.passro.passrobackend.domain.delivery.entity.Delivery;
+import com.passro.passrobackend.domain.delivery.enums.DeliveryState;
+import com.passro.passrobackend.domain.place.entity.Place;
+import com.passro.passrobackend.domain.place.repository.PlaceRepository;
 import com.passro.passrobackend.support.IntegrationTestSupport;
 import java.math.BigDecimal;
 import java.util.ArrayList;

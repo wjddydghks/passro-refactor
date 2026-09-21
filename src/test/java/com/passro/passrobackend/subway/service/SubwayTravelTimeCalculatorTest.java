@@ -2,6 +2,7 @@ package com.passro.passrobackend.subway.service;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import com.passro.passrobackend.domain.subway.service.SubwayTravelTimeCalculator;
 import org.junit.jupiter.api.Test;
 
 class SubwayTravelTimeCalculatorTest {

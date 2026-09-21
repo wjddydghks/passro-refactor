@@ -1,15 +1,16 @@
 package com.passro.passrobackend.deliveryinquiry.service;
 
-import com.passro.passrobackend.account.entity.Account;
-import com.passro.passrobackend.delivery.entity.Delivery;
-import com.passro.passrobackend.delivery.exception.DeliveryException;
-import com.passro.passrobackend.delivery.repository.DeliveryRepository;
-import com.passro.passrobackend.deliveryinquiry.dto.DeliveryInquiryCreateRequestDto;
-import com.passro.passrobackend.deliveryinquiry.dto.DeliveryInquiryResponseDto;
-import com.passro.passrobackend.deliveryinquiry.entity.DeliveryInquiry;
-import com.passro.passrobackend.deliveryinquiry.enums.DeliveryInquiryCategory;
-import com.passro.passrobackend.deliveryinquiry.repository.DeliveryInquiryRepository;
-import com.passro.passrobackend.file.service.S3Service;
+import com.passro.passrobackend.domain.account.entity.Account;
+import com.passro.passrobackend.domain.delivery.entity.Delivery;
+import com.passro.passrobackend.domain.delivery.exception.DeliveryException;
+import com.passro.passrobackend.domain.delivery.repository.DeliveryRepository;
+import com.passro.passrobackend.domain.deliveryinquiry.dto.DeliveryInquiryCreateRequestDto;
+import com.passro.passrobackend.domain.deliveryinquiry.dto.DeliveryInquiryResponseDto;
+import com.passro.passrobackend.domain.deliveryinquiry.entity.DeliveryInquiry;
+import com.passro.passrobackend.domain.deliveryinquiry.enums.DeliveryInquiryCategory;
+import com.passro.passrobackend.domain.deliveryinquiry.repository.DeliveryInquiryRepository;
+import com.passro.passrobackend.domain.deliveryinquiry.service.DeliveryInquiryService;
+import com.passro.passrobackend.global.file.service.S3Service;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

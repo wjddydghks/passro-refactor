@@ -4,12 +4,14 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.mockito.BDDMockito.given;
 
-import com.passro.passrobackend.account.entity.Account;
-import com.passro.passrobackend.delivery.entity.Delivery;
-import com.passro.passrobackend.delivery.exception.DeliveryException;
-import com.passro.passrobackend.delivery.exception.code.DeliveryErrorCode;
-import com.passro.passrobackend.delivery.repository.DeliveryRepository;
+import com.passro.passrobackend.domain.account.entity.Account;
+import com.passro.passrobackend.domain.delivery.entity.Delivery;
+import com.passro.passrobackend.domain.delivery.exception.DeliveryException;
+import com.passro.passrobackend.domain.delivery.exception.code.DeliveryErrorCode;
+import com.passro.passrobackend.domain.delivery.repository.DeliveryRepository;
 import java.util.Optional;
+
+import com.passro.passrobackend.domain.sender.service.SenderDeliveryValidator;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

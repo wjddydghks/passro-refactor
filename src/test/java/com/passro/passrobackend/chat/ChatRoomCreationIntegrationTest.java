@@ -7,12 +7,12 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-import com.passro.passrobackend.account.entity.Account;
-import com.passro.passrobackend.chat.entity.ChatMessage;
-import com.passro.passrobackend.chat.repository.ChatMessageRepository;
-import com.passro.passrobackend.chat.repository.ChatRoomRepository;
-import com.passro.passrobackend.delivery.entity.Delivery;
-import com.passro.passrobackend.delivery.enums.DeliveryState;
+import com.passro.passrobackend.domain.account.entity.Account;
+import com.passro.passrobackend.domain.chat.entity.ChatMessage;
+import com.passro.passrobackend.domain.chat.repository.ChatMessageRepository;
+import com.passro.passrobackend.domain.chat.repository.ChatRoomRepository;
+import com.passro.passrobackend.domain.delivery.entity.Delivery;
+import com.passro.passrobackend.domain.delivery.enums.DeliveryState;
 import com.passro.passrobackend.support.IntegrationTestSupport;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

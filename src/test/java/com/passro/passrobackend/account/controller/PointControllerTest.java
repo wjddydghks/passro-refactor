@@ -1,12 +1,13 @@
 package com.passro.passrobackend.account.controller;
 
-import com.passro.passrobackend.account.entity.Account;
+import com.passro.passrobackend.domain.account.entity.Account;
 import com.passro.passrobackend.global.response.APIResponse;
-import com.passro.passrobackend.point.dto.PointHistoryResponseDto;
-import com.passro.passrobackend.point.dto.PointDeliveryResponseDto;
-import com.passro.passrobackend.point.dto.PointLogResponseDto;
-import com.passro.passrobackend.point.enums.PointIncrementReason;
-import com.passro.passrobackend.point.service.PointService;
+import com.passro.passrobackend.domain.point.controller.PointController;
+import com.passro.passrobackend.domain.point.dto.PointHistoryResponseDto;
+import com.passro.passrobackend.domain.point.dto.PointDeliveryResponseDto;
+import com.passro.passrobackend.domain.point.dto.PointLogResponseDto;
+import com.passro.passrobackend.domain.point.enums.PointIncrementReason;
+import com.passro.passrobackend.domain.point.service.PointService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;

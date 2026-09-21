@@ -6,17 +6,17 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-import com.passro.passrobackend.account.entity.Account;
-import com.passro.passrobackend.delivery.entity.Delivery;
-import com.passro.passrobackend.delivery.enums.DeliveryLogType;
-import com.passro.passrobackend.delivery.enums.DeliveryState;
-import com.passro.passrobackend.delivery.exception.DeliveryException;
-import com.passro.passrobackend.delivery.exception.code.DeliveryErrorCode;
-import com.passro.passrobackend.delivery.repository.DeliveryLogRepository;
-import com.passro.passrobackend.place.entity.Place;
-import com.passro.passrobackend.place.repository.PlaceRepository;
-import com.passro.passrobackend.notification.service.NotificationService;
-import com.passro.passrobackend.shipper.service.ShipperService;
+import com.passro.passrobackend.domain.account.entity.Account;
+import com.passro.passrobackend.domain.delivery.entity.Delivery;
+import com.passro.passrobackend.domain.delivery.enums.DeliveryLogType;
+import com.passro.passrobackend.domain.delivery.enums.DeliveryState;
+import com.passro.passrobackend.domain.delivery.exception.DeliveryException;
+import com.passro.passrobackend.domain.delivery.exception.code.DeliveryErrorCode;
+import com.passro.passrobackend.domain.delivery.repository.DeliveryLogRepository;
+import com.passro.passrobackend.domain.place.entity.Place;
+import com.passro.passrobackend.domain.place.repository.PlaceRepository;
+import com.passro.passrobackend.domain.notification.service.NotificationService;
+import com.passro.passrobackend.domain.shipper.service.ShipperService;
 import com.passro.passrobackend.support.IntegrationTestSupport;
 import java.util.List;
 import java.util.concurrent.CountDownLatch;

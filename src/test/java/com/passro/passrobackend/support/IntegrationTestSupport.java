@@ -4,10 +4,10 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.passro.passrobackend.account.entity.Account;
-import com.passro.passrobackend.account.enums.AccountRole;
-import com.passro.passrobackend.account.repository.AccountRepository;
-import com.passro.passrobackend.delivery.repository.DeliveryRepository;
+import com.passro.passrobackend.domain.account.entity.Account;
+import com.passro.passrobackend.domain.account.enums.AccountRole;
+import com.passro.passrobackend.domain.account.repository.AccountRepository;
+import com.passro.passrobackend.domain.delivery.repository.DeliveryRepository;
 import com.passro.passrobackend.global.jwt.JwtProvider;
 import jakarta.persistence.EntityManager;
 import java.time.LocalDate;

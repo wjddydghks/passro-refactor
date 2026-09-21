@@ -11,9 +11,9 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import com.fasterxml.jackson.databind.JsonNode;
-import com.passro.passrobackend.account.entity.Account;
-import com.passro.passrobackend.account.entity.University;
-import com.passro.passrobackend.account.repository.UniversityRepository;
+import com.passro.passrobackend.domain.account.entity.Account;
+import com.passro.passrobackend.domain.account.entity.University;
+import com.passro.passrobackend.domain.account.repository.UniversityRepository;
 import com.passro.passrobackend.support.IntegrationTestSupport;
 import java.util.UUID;
 import org.junit.jupiter.api.Test;

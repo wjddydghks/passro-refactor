@@ -1,16 +1,14 @@
 package com.passro.passrobackend.global.jwt;
 
-import com.passro.passrobackend.account.entity.Account;
-import com.passro.passrobackend.account.repository.AccountRepository;
+import com.passro.passrobackend.domain.account.entity.Account;
+import com.passro.passrobackend.domain.account.repository.AccountRepository;
 import com.passro.passrobackend.global.configuration.security.CustomUserDetails;
-import com.passro.passrobackend.global.configuration.security.SecurityConfiguration;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.filter.OncePerRequestFilter;
 

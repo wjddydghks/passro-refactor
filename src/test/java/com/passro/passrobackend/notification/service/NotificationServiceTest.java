@@ -1,14 +1,15 @@
 package com.passro.passrobackend.notification.service;
 
-import com.passro.passrobackend.account.entity.Account;
-import com.passro.passrobackend.notification.code.NotificationErrorCode;
-import com.passro.passrobackend.notification.dto.NotificationResponseDto;
-import com.passro.passrobackend.notification.dto.UnreadCountResponseDto;
-import com.passro.passrobackend.notification.entity.Notification;
-import com.passro.passrobackend.notification.enums.NotificationType;
-import com.passro.passrobackend.notification.enums.ResourceType;
-import com.passro.passrobackend.notification.exception.NotificationException;
-import com.passro.passrobackend.notification.repository.NotificationRepository;
+import com.passro.passrobackend.domain.account.entity.Account;
+import com.passro.passrobackend.domain.notification.code.NotificationErrorCode;
+import com.passro.passrobackend.domain.notification.dto.NotificationResponseDto;
+import com.passro.passrobackend.domain.notification.dto.UnreadCountResponseDto;
+import com.passro.passrobackend.domain.notification.entity.Notification;
+import com.passro.passrobackend.domain.notification.enums.NotificationType;
+import com.passro.passrobackend.domain.notification.enums.ResourceType;
+import com.passro.passrobackend.domain.notification.exception.NotificationException;
+import com.passro.passrobackend.domain.notification.repository.NotificationRepository;
+import com.passro.passrobackend.domain.notification.service.NotificationService;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
