@@ -1,0 +1,85 @@
+services:
+  db:
+    image: mysql:8.0
+    container_name: passro-db
+    restart: unless-stopped
+    env_file:
+      - .env
+    networks:
+      - passro-network
+    environment:
+      TZ: "Asia/Seoul"
+      MYSQL_ROOT_PASSWORD: "${MYSQL_ROOT_PASSWORD}"
+      MYSQL_DATABASE: "${MYSQL_DATABASE}"
+      MYSQL_USER: "${MYSQL_USER}"
+      MYSQL_PASSWORD: "${MYSQL_PASSWORD}"
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    image: redis:7-alpine
+    container_name: passro-redis
+    restart: unless-stopped
+    env_file:
+      - .env
+    networks:
+      - passro-network
+    command: redis-server --requirepass "${REDIS_PASSWORD}"
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "-a", "${REDIS_PASSWORD}", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  passro-backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: passro-backend:latest
+    container_name: passro-backend
+    restart: unless-stopped
+    networks:
+      - passro-network
+    depends_on:
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    env_file:
+      - .env
+    environment:
+      DATABASE_URL: "jdbc:mysql://passro-db:3306/${MYSQL_DATABASE}"
+      DATABASE_USERNAME: "${MYSQL_USER}"
+      DATABASE_PASSWORD: "${MYSQL_PASSWORD}"
+      REDIS_HOST: "redis"
+      REDIS_PORT: "6379"
+      REDIS_PASSWORD: "${REDIS_PASSWORD}"
+      SMTP_USER_NAME: "${SMTP_USER_NAME}"
+      SMTP_PASSWORD: "${SMTP_PASSWORD}"
+      JWT_SECRET: "${JWT_SECRET}"
+      SUBWAY_API_KEY: "${SUBWAY_API_KEY}"
+      TZ: "Asia/Seoul"
+      JAVA_OPTS: "${JAVA_OPTS:-} -Duser.timezone=Asia/Seoul"
+    ports:
+      - "8080:8080"
+
+networks:
+  passro-network:
+    driver: bridge
+
+volumes:
+  db_data:
+    driver: local
+  redis_data:
+    driver: local
