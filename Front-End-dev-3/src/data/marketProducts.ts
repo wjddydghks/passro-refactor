@@ -1,0 +1,58 @@
+import type { MarketProduct } from "../types/market";
+
+export const MARKET_PRODUCTS: MarketProduct[] = [
+    {
+        id: 1,
+        name: "편의점 3천원권",
+        description: "가까운 편의점에서 사용할 수 있는 모바일 상품권",
+        requiredPoint: 3_000,
+        image: "🏪",
+        imageLabel: "편의점",
+        backgroundClass: "bg-indigo-50",
+    },
+    {
+        id: 2,
+        name: "카페 음료 교환권",
+        description: "공부 중 잠깐의 휴식을 위한 음료 교환권",
+        requiredPoint: 4_500,
+        image: "🥤",
+        imageLabel: "음료",
+        backgroundClass: "bg-amber-50",
+    },
+    {
+        id: 3,
+        name: "학식 식사권",
+        description: "제휴 학생식당에서 사용할 수 있는 한 끼 식사권",
+        requiredPoint: 8_000,
+        image: "🍱",
+        imageLabel: "도시락",
+        backgroundClass: "bg-emerald-50",
+    },
+    {
+        id: 4,
+        name: "문구 세트",
+        description: "노트와 필기구로 구성된 기본 학습용 문구 세트",
+        requiredPoint: 12_000,
+        image: "✏️",
+        imageLabel: "연필",
+        backgroundClass: "bg-sky-50",
+    },
+    {
+        id: 5,
+        name: "교통 충전권",
+        description: "대중교통 이용에 보탤 수 있는 모바일 충전권",
+        requiredPoint: 20_000,
+        image: "🚇",
+        imageLabel: "지하철",
+        backgroundClass: "bg-violet-50",
+    },
+    {
+        id: 6,
+        name: "휴대용 보조배터리",
+        description: "통학 중 간편하게 사용할 수 있는 소형 보조배터리",
+        requiredPoint: 45_000,
+        image: "🔋",
+        imageLabel: "배터리",
+        backgroundClass: "bg-rose-50",
+    },
+];
