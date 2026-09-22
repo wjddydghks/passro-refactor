@@ -29,7 +29,7 @@ public class VerificationCodeService {
     private static final String VERIFIED_PREFIX = "mail:verify:done:";
     private static final Duration VERIFIED_TTL = Duration.ofMinutes(30);
 
-
+  
     public void confirmCode(AuthReqDTO.ConfirmCode dto) {
         String mail = dto.getMail();
         String code = dto.getCode();
