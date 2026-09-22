@@ -20,30 +20,35 @@ public class Account extends BaseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     private String mail;
+
+    @Column(nullable = false, unique = true)
+    private String nickname;
+
+    @Column(nullable = false, unique = true)
+    private String phoneNumber;
+
     @Column(nullable = false)
     private String password;
+
     @Column(nullable = false)
-    private String nickname;
+    private String name;
+
+    @Column(nullable = false)
+    private LocalDate birth;
 
     @ManyToOne
     private Place place_id;
 
-    private String name;
-    private String phoneNumber;
-    private LocalDate birth;
-    private Boolean certified;
     private Long point;
+
     private String picture;
 
     @Enumerated(EnumType.STRING)
     private AccountRole role;
 
-    public void certify() {
-        this.certified = true;
-    }
-
+  
     public void changeNickname(String nickname) {
         this.nickname = nickname;
     }
