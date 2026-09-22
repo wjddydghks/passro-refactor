@@ -91,7 +91,6 @@ public class AuthService {
                 .name(dto.getName())
                 .phoneNumber(dto.getPhoneNumber())
                 .birth(dto.getBirth())
-                .certified(false)
                 .point(10000L)
                 .picture(dto.getPicture())
                 .role(AccountRole.USER)

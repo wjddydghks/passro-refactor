@@ -113,13 +113,6 @@ public class AccountService {
         return new AccountResDTO.SenderMyPage(picture, nickname, deliveryCount, point);
     }
 
-    public boolean isStudentCertified(Long accountId) {
-        Account account = accountRepository.findById(accountId)
-                .orElseThrow(() -> new AccountException(AccountErrorCode.NOT_FOUND));
-
-        return Boolean.TRUE.equals(account.getCertified());
-    }
-
     @Transactional
     public void editMyInfo(AccountReqDTO.EditMyInfo dto, Long accountId) {
         if (Boolean.TRUE.equals(stringRedisTemplate.hasKey(EDIT_INFO_COOLDOWN_PREFIX + accountId)))
