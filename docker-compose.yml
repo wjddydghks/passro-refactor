@@ -18,10 +18,11 @@ services:
     volumes:
       - db_data:/var/lib/mysql
     healthcheck:
-      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      test: ["CMD-SHELL", "mysqladmin ping -h localhost -uroot -p\"$${MYSQL_ROOT_PASSWORD}\" --silent"]
       interval: 10s
       timeout: 5s
-      retries: 5
+      retries: 10
+      start_period: 30s
 
   redis:
     image: redis:7-alpine
@@ -59,7 +60,7 @@ services:
     env_file:
       - .env
     environment:
-      DATABASE_URL: "jdbc:mysql://passro-db:3306/${MYSQL_DATABASE}"
+      DATABASE_URL: "jdbc:mysql://db:3306/${MYSQL_DATABASE}?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Seoul"
       DATABASE_USERNAME: "${MYSQL_USER}"
       DATABASE_PASSWORD: "${MYSQL_PASSWORD}"
       REDIS_HOST: "redis"
